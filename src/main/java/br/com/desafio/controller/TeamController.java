@@ -46,6 +46,8 @@ public class TeamController {
             throw new NoSuchElementException("Member "+memberId+" already belongs to team "+teamId);
         }
         team.getTeamMembers().add(member);
+        member.setTeam(team);
+        teamRepo.save(team);
         return team;
     }
 

@@ -1,5 +1,8 @@
 package br.com.desafio.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -44,7 +47,7 @@ public class Member implements Serializable {
         this.id = id;
     }
 
-
+    @JsonIgnore
     public Team getTeam() {
         return team;
     }

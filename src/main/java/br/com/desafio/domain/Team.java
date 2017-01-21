@@ -1,5 +1,8 @@
 package br.com.desafio.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -18,7 +21,7 @@ public class Team implements Serializable{
     @Column(nullable = false)
     private String name;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Member> teamMembers;
 
     public Team(String name) {
@@ -45,7 +48,7 @@ public class Team implements Serializable{
         this.id = id;
     }
 
-
+    @JsonIgnore
     public List<Member> getTeamMembers() {
         return teamMembers;
     }
