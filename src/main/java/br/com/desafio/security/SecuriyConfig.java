@@ -43,7 +43,7 @@ public class SecuriyConfig extends WebSecurityConfigurerAdapter{
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests()
                 .antMatchers("/showVersion").permitAll();
-                //.anyRequest().authenticated();
+
 
         http.csrf().disable().httpBasic();
 
@@ -59,26 +59,3 @@ public class SecuriyConfig extends WebSecurityConfigurerAdapter{
 
 }
 
-
-@RestController
-@PropertySource("classpath:application.properties")
-class WebApplication {
-    @Value("${api.version}")
-    private String apiVersion;
-
-    @RequestMapping("/showVersion")
-    public String showVersion(Authentication authentication) {
-        String msg = "";
-        if(authentication != null){
-            for (GrantedAuthority authority : authentication.getAuthorities()) {
-                String role = authority.getAuthority();
-                msg+= authentication.getName()+", You have "+ role;
-            }
-            return apiVersion +" - User :"+msg;
-
-        }else{
-            return apiVersion + " - Anonymous User";
-        }
-    }
-
-}
