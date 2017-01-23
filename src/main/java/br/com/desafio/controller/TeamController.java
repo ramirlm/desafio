@@ -1,14 +1,20 @@
 package br.com.desafio.controller;
 
+import java.util.NoSuchElementException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
 import br.com.desafio.domain.Member;
 import br.com.desafio.domain.Team;
 import br.com.desafio.repo.MemberRepo;
 import br.com.desafio.repo.TeamRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.NoSuchElementException;
 
 /**
  * Created by Ramir on 20/01/2017.

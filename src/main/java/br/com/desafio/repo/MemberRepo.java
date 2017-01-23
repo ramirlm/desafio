@@ -1,12 +1,12 @@
 package br.com.desafio.repo;
 
-import br.com.desafio.domain.Member;
+import java.util.List;
+
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
+import br.com.desafio.domain.Member;
 
 /**
  * Created by Ramir on 20/01/2017.
